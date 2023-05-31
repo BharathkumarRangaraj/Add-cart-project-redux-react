@@ -6,7 +6,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import { NavLink } from 'react-router-dom';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-import UpdateCart from '../Reducers/updateCart';
+
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import Add from '../Actions/ReduxAction';
@@ -16,7 +16,7 @@ import Deleteproduct from '../Reducers/deleteProductFromcartAction';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import Badge from '@mui/material/Badge';
 import { Table } from 'react-bootstrap';
-import { TheatersSharp } from '@mui/icons-material';
+
 import DeleteIcon from '@mui/icons-material/Delete';
 
 
@@ -66,14 +66,14 @@ const deleteproduct=(product)=>{
       
          <Navbar bg="dark" variant ='dark' expand="lg">
       <Container className='text-white'>
-        <Navbar.Brand href="#home">Add To Cart Project</Navbar.Brand>
+        <Navbar.Brand href="#home"> Bharath Add To Cart Project</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto w-100">
             <NavLink className={'text-decoration-none text-white'} to="/">Products</NavLink>
             <NavLink className={'text-decoration-none text-white w-100'}>
               <Badge  
-            badgeContent={cart.length} color="primary" style={{float:"right"}}><ShoppingCartIcon 
+            badgeContent={cart.length} color="primary" ><ShoppingCartIcon 
             onClick={handleClick} />
             </Badge>
             </NavLink>
@@ -114,7 +114,7 @@ const deleteproduct=(product)=>{
                     <tbody key={product.id}>
                       <tr>
                   <td>
-                    <img style={{width:'5rem' , height:'5rem'}} src={product.image} />
+                    <img style={{width:'5rem' , height:'5rem'}} src={product.image} alt='helo' />
                   </td>
                   <td>
                     <p>{product.title}</p>
@@ -123,7 +123,7 @@ const deleteproduct=(product)=>{
                     <div className='d-flex justify-content-between w-50'>
                       <p onClick={ ()=>Sendaddtocart(product)}>+</p>
                       <p>x{product.rating.count}</p>
-                      <p onClick={product.rating.count == 1 ?()=>deleteproduct(product): ()=>sendremoveonefromcart(product)}>-</p>
+                      <p onClick={product.rating.count === 1 ?()=>deleteproduct(product): ()=>sendremoveonefromcart(product)}>-</p>
                     </div>
                   </td>
                   <td>
